@@ -102,12 +102,12 @@ erDiagram
     CLIENTE {
         int ID_Cliente PK
         string Nome
-        string Endereço
+        string Endereco
         string Telefone
     }
 
     VEICULO {
-        int ID_Veículo PK
+        int ID_Veiculo PK
         string Modelo
         string Marca
         int Ano
@@ -116,9 +116,9 @@ erDiagram
     }
 
     MECANICO {
-        int ID_Mecânico PK
+        int ID_Mecanico PK
         string Nome
-        string Endereço
+        string Endereco
         string Especialidade
     }
 
@@ -134,20 +134,20 @@ erDiagram
         string Status
         date Data_Entrega_Estimada
         date Data_Inicio
-        string Observações
+        string Observacoes
     }
 
-    SERVIÇO {
-        int ID_Serviço PK
-        string Descrição
+    SERVICO {
+        int ID_Servico PK
+        string Descricao
         float Valor_Unitario
         string Categoria
         int Tempo_Estimado
     }
 
-    PEÇA {
-        int ID_Peça PK
-        string Descrição
+    PECA {
+        int ID_Peca PK
+        string Descricao
         float Valor_Unitario
     }
 
@@ -156,15 +156,15 @@ erDiagram
         int ID_OS FK
         date Data_Pagamento
         float Valor_Pago
-        string Método_Pagamento
+        string Metodo_Pagamento
     }
 
     CLIENTE ||--o{ VEICULO : possui
     VEICULO ||--o{ ORDEM_SERVICO : tem
-    ORDEM_SERVICO ||--o{ SERVIÇO : inclui
-    SERVIÇO }o--o{ ORDEM_SERVICO : realiza 
-    ORDEM_SERVICO ||--o{ PEÇA : inclui 
-    PEÇA }o--o{ ORDEM_SERVICO : utiliza 
+    ORDEM_SERVICO ||--o{ SERVICO : inclui
+    SERVICO }o--o{ ORDEM_SERVICO : realiza 
+    ORDEM_SERVICO ||--o{ PECA : inclui 
+    PECA }o--o{ ORDEM_SERVICO : utiliza 
     ORDEM_SERVICO ||--|| PAGAMENTO : gera 
     MECANICO }o--o{ EQUIPE : fazParte 
     EQUIPE }o--o{ ORDEM_SERVICO : designadaPara 

@@ -301,7 +301,7 @@ INSERT INTO Ordem_Servico_Peca VALUES (1, 1);
 INSERT INTO Mecanico_Equipe VALUES (1, 1);
 INSERT INTO Equipe_Ordem_Servico VALUES (1, 1);
 ```
-6. Recuperação com subquery (ordem de serviço mais recente de cada cliente):
+## Recuperação com subquery (ordem de serviço mais recente de cada cliente):
    ```sql
    SELECT Cliente.Nome, Ordem_Servico.ID_OS, Ordem_Servico.Data_Emissao
    FROM Cliente
@@ -313,13 +313,13 @@ INSERT INTO Equipe_Ordem_Servico VALUES (1, 1);
       WHERE OS2.ID_Veiculo = Veiculo.ID_Veiculo
    );
    ```
-7. Contagem de mecânicos por especialidade:
+## Contagem de mecânicos por especialidade:
    ```sql
    SELECT Especialidade, COUNT(*) AS Total_Mecanicos
    FROM Mecanico
    GROUP BY Especialidade;
    ```
-8. Cálculo do valor total de serviços por ordem de serviço:
+## Cálculo do valor total de serviços por ordem de serviço:
    ```sql
    SELECT Ordem_Servico.ID_OS, SUM(Servico.Valor_Unitario) AS Total_Servicos
    FROM Ordem_Servico
@@ -327,7 +327,7 @@ INSERT INTO Equipe_Ordem_Servico VALUES (1, 1);
    JOIN Servico ON Ordem_Servico_Servico.ID_Servico = Servico.ID_Servico
    GROUP BY Ordem_Servico.ID_OS;
    ```
-9. Listagem de peças usadas em ordens de serviço concluídas:
+## Listagem de peças usadas em ordens de serviço concluídas:
    ```sql
    SELECT Ordem_Servico.ID_OS, Peca.Descricao, Peca.Valor_Unitario
    FROM Ordem_Servico
@@ -335,7 +335,7 @@ INSERT INTO Equipe_Ordem_Servico VALUES (1, 1);
    JOIN Peca ON Ordem_Servico_Peca.ID_Peca = Peca.ID_Peca
    WHERE Ordem_Servico.Status = 'Concluída';
    ```
-10. Média de tempo estimado de serviços por categoria:
+## Média de tempo estimado de serviços por categoria:
    ```sql
    SELECT Categoria, AVG(Tempo_Estimado) AS Media_Tempo_Estimado
    FROM Servico

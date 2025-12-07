@@ -332,7 +332,6 @@ FOR EACH ROW EXECUTE PROCEDURE update_service_order_total();
 
 1. Run all SQL scripts above in your PostgreSQL environment.
 2. Explore/modify the queries and entities per your business needs.
-3. Show your project to recruiters highlighting clarity, best practices, and advanced features.
 
 ---
 
